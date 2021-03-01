@@ -3,7 +3,8 @@
 module Control.Comonad.Cofree
   ( Cofree
   , deferCofree
-  , mkCofree, (:<)
+  , mkCofree
+  , (:<)
   , head
   , tail
   , hoistCofree
@@ -14,6 +15,7 @@ module Control.Comonad.Cofree
   ) where
 
 import Prelude
+
 import Control.Alternative (class Alternative, (<|>), empty)
 import Control.Comonad (class Comonad, extract)
 import Control.Extend (class Extend)

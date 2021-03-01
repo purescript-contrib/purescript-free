@@ -2,7 +2,7 @@ module Test.Control.Monad.Free.Coproduct where
 
 import Prelude
 
-import Control.Monad.Free (Free, liftF, hoistFree, foldFree)
+import Control.Monad.Free (Free, hoistFree, interpret, liftF)
 import Data.Functor.Coproduct (Coproduct, coproduct, left, right)
 import Effect (Effect)
 import Effect.Console (log)
@@ -57,7 +57,7 @@ tN :: TF ~> Effect
 tN = coproduct teletype1N $ coproduct teletype2N teletype3N
 
 run :: T ~> Effect
-run = foldFree tN
+run = interpret tN
 
 main :: Effect Unit
 main = run u
